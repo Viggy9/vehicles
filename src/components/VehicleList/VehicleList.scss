@@ -1,0 +1,26 @@
+.vehicle-list {
+  border: 1px solid black;
+  height: 100px;
+  margin: 1.25rem;
+}
+
+.vehicle-text {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.header-text {
+  font-size: 1.25rem;
+}
+
+.vehicle-container {
+  padding: 1.5rem;
+}

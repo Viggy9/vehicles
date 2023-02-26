@@ -1,25 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect } from "react";
+import VehicleList from "./components/VehicleList/VehicleList";
+import Filter from "./components/Filter";
+import { fetchVehicleList } from "./reducers/application";
+import { useDispatch, useSelector } from "react-redux";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+  const dispatch = useDispatch();
+  const { showFilter, isVehicleListResolved } = useSelector(
+    (state) => state.application
   );
+
+  useEffect(() => {
+    if (!isVehicleListResolved) {
+      dispatch(fetchVehicleList());
+    }
+  }, [isVehicleListResolved]);
+
+  if (showFilter) {
+    return <Filter />;
+  }
+
+  return !isVehicleListResolved ? "Loading...." : <VehicleList />;
 }
+
 
 export default App;
