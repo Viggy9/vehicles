@@ -6,6 +6,9 @@ To run the project locally:
 2) For running the server, execute the command:
 ### `npm start`
 
+3) For running the tests, execute the command:
+### `npm run test`
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

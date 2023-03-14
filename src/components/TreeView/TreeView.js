@@ -86,11 +86,12 @@ const TreeList = ({ filters }) => {
       {filters.map((item) => (
         <li key={item.id} className="list-item">
           <input
+            id={item.name}
             type="checkbox"
             checked={selectedItems.findIndex((i) => i.id === item.id) >= 0}
             onChange={() => handleChange(item)}
           />
-          {` ${capitalizeFirstLetter(item.name)} (${item.total})`}
+          <label htmlFor={item.name} style={{marginLeft: '0.5rem'}}>{`${capitalizeFirstLetter(item.name)} (${item.total})`}</label>
 
           {item.children &&
             selectedItems.findIndex((i) => i.id === item.id) >= 0 && (
